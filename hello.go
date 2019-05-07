@@ -5,7 +5,6 @@ import (
 )
 
 var token = "loaderio-3c7cdedd29a59ff8714d4bf41f1c1870"
-
 func sendToken(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte(token))
 }
