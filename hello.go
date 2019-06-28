@@ -4,7 +4,7 @@ import (
   "strings"
 )
 
-var token = "loaderio-3c7cdedd29a59ff8714d4bf41f1c1870"
+var token = "loaderio-b1563d0e1a489bdfd2b21cc76d9b3c22"
 func sendToken(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte(token))
 }
@@ -12,7 +12,7 @@ func sendToken(w http.ResponseWriter, r *http.Request) {
 func sayHello(w http.ResponseWriter, r *http.Request) {
   message := r.URL.Path
   message = strings.TrimPrefix(message, "/")
-  message = "Hello " + message
+  message = "Hello there " + message + "!!!"
   w.Write([]byte(message))
 }
 
