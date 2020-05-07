@@ -1,1 +1,15 @@
-gcloud beta run deploy --image gcr.io/mco-cloud-run/mco-hello
+set -x
+
+PROJ=mco-cloud-run
+APP=mco-hello
+TAG="gcr.io/$PROJ/$APP"
+docker build --tag $TAG .
+docker push $TAG
+gcloud beta run deploy "$APP" \
+  --image "$TAG"              \
+  --platform "managed"        \
+  --region "us-central1"      \
+  --project "$PROJ"           \
+  --concurrency 5             \
+  --memory=1Gi                \
+  --allow-unauthenticated
