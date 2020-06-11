@@ -5,7 +5,7 @@ APP=mco-hello
 TAG="gcr.io/$PROJ/$APP"
 docker build --tag $TAG .
 docker push $TAG
-gcloud beta run deploy "$APP" \
+gcloud run deploy "$APP" \
   --image "$TAG"              \
   --platform "managed"        \
   --region "us-central1"      \
