@@ -1,9 +1,9 @@
+[ -d "$1" ] || { echo "usage: $0 go|python"; exit; }
 set -x
-
 PROJ=mco-cloud-run
-APP=mco-hello
+APP=mco-hello-$1
 TAG="gcr.io/$PROJ/$APP"
-docker build --tag $TAG .
+docker build --tag $TAG $1
 docker push $TAG
 gcloud run deploy "$APP" \
   --image "$TAG"              \

@@ -1,4 +1,5 @@
+[ -d "$1" ] || { echo "usage: $0 go|python"; exit; }
 set -x
-TAG="gcr.io/mco-cloud-run/mco-hello"
-docker build . --tag $TAG
+TAG="gcr.io/mco-cloud-run/mco-hello-$1"
+docker build $1 --tag $TAG
 docker run -d -p 8080:8080 $TAG
