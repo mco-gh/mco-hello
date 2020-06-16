@@ -34,7 +34,7 @@ def say_hello(name='World'):
 
 @app.errorhandler(404)
 def not_found(error):
-    return """<h1> 404 </h1>"""
+  return """<h1> 404 </h1>"""
 
   #Option to use template 
   #return render_template('home.hml')
@@ -58,5 +58,7 @@ def handle_exception(e):
     return response
 
 if __name__ == '__main__':
+    # Use when running locally
+    #app.run(host='0.0.0.0', use_reloader=True, debug=True)
 
-    app.run(host='0.0.0.0', port=8080, use_reloader=True, debug=True)
+  app.run(host='0.0.0.0',port=8080, use_reloader=True, debug=True, threaded=True)
