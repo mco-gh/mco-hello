@@ -14,6 +14,9 @@ func sendToken(w http.ResponseWriter, r *http.Request) {
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
   path := strings.TrimPrefix(r.URL.Path, "/")
+  if path == "" {
+    path = "World"
+  }
   random := rand.Intn(16777215)
   color := fmt.Sprintf("%6.6x", random)
   style := "style=\"background-color:#" + color + "\""
