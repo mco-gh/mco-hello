@@ -7,7 +7,8 @@ import (
   "time"
 )
 
-var token = "loaderio-b1563d0e1a489bdfd2b21cc76d9b3c22"
+var token = "loaderio-c72fb7640763e8929854bf1cde5c867f"
+
 func sendToken(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte(token))
 }
