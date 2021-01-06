@@ -1,6 +1,6 @@
-FROM python:3-onbuild
+FROM python:3
 WORKDIR /usr/src/app
 ADD ./hello.py /usr/src/app
 ADD ./requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
-CMD ["python", "./hello.py"]
+CMD ["python", "hello.py"]

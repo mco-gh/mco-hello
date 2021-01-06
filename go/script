@@ -1,0 +1,3 @@
+./fetch https://mco.fyi https://mco.dev https://www.google.com
+echo
+./cfetch https://mco.fyi https://mco.dev https://www.google.com

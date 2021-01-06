@@ -18,13 +18,12 @@ func main() {
 	for range os.Args[1:] {
 		fmt.Println(<-ch) // receive from channel ch
 	}
-	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
+	fmt.Printf("\n%.2fs elapsed\n", time.Since(start).Seconds())
 }
 
 func fetch(url string, ch chan<- string) {
-	start := time.Now()
+	reqStart := time.Now()
 	resp, err := http.Get(url)
-	secs := time.Since(start).Seconds()
 	if err != nil {
 		ch <- fmt.Sprint(err) // send to channel ch
 		return
@@ -35,5 +34,6 @@ func fetch(url string, ch chan<- string) {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
 		return
 	}
+	secs := time.Since(reqStart).Seconds()
 	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 }
